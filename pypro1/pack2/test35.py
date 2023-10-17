@@ -25,7 +25,7 @@ print('----------------')
 # 클래스의 멤버 변수를 고정
 class Ani:
     __slots__ = ['irum', 'nai']
-    
+
     def printData(self):
         print(self.irum, self.nai)
     
