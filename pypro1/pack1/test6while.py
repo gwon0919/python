@@ -30,6 +30,7 @@ while a < len(colors):
     print(colors[a], end = ' : ')
     a+=1
 
+print()
 print('별 찍기')
 i = 1
 while i <= 10:
@@ -55,17 +56,74 @@ import time
 #time.sleep(3)
 #print('계속')
 
-button = input('폭탄 스위치를 누를까요?(y/n)')
-if button == 'Y' or button == 'y':
-    #pass
-    count = 5
-    while 1 <= count: 
-        print('%d초 남았군요'%count)
-        time.sleep(1)
-        count -= 1
-    print('BOOOM!')
-elif button == 'N' or button == 'n':
-    print('작업 취소')
-else:
-    print('y or n 을 누르시오')
+#===============================================================================
+# button = input('폭탄 스위치를 누를까요?(y/n)')
+# if button == 'Y' or button == 'y':
+#     #pass
+#     count = 5
+#     while 1 <= count: 
+#         print('%d초 남았군요'%count)
+#         time.sleep(1)
+#         count -= 1
+#     print('BOOOM!')
+# elif button == 'N' or button == 'n':
+#     print('작업 취소')
+# else:
+#     print('y or n 을 누르시오')
+#     
+#===============================================================================
     
+print('---test---')
+print('별 찍기')
+i = 1
+while i <= 10:
+    j = 1
+    disp = ''
+    while j <= i:
+        disp += '*'
+        j += 1
+    print(disp)  
+    i += 1
+    
+    
+print()
+num = 10
+n = num
+k = num + 1
+while num > 0:
+    print(" " * (k-num), "*" * num)
+    num -=1
+
+n = 10
+k = n + 1
+while n > 0:
+    print(" " * (k-n), "*" * n)
+    n -=1   
+    
+
+print('문제13')
+number = 1
+while number <= 100:
+    if number % 10 == 3:
+        print(number)
+    number += 1
+print()   
+#===============================================================================
+# i = 0
+# while True:
+#     if i<= 100:
+#         i +=1
+#          
+#     if i >100 : False
+#      
+#     print(i, end=' ')
+#      
+i = 0
+while True:
+    if i <= 100:
+        i += 1
+        if i % 10 == 3:
+            print(i, end=' ')
+    if i > 100:
+        break
+

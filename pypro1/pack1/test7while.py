@@ -3,10 +3,10 @@ from _ast import If
 
 a = 0
 while a < 10:
-     a += 1
-     if a == 5: continue
-     if a == 6: break
-     print(a)
+    a += 1
+    if a == 5: continue
+    if a == 6: break
+    print(a)
 else:           # 강제 종료하면 else가 수행되지 않는다(break)
     print('while 정상 처리')
 print('while 수행 후 a는 %d'%a)

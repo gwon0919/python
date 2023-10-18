@@ -73,6 +73,12 @@ print(v1,v2)  # 1 [2, 3, 4, 5]
 v1, *v2, v3 = 1,2,3,4,5     # 팩킹 연산은 하나만
 print(v1, v2, v3)
 
+print('--시험중--')
+*v1, v2, v3 = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5}
+print(v1)
+print(v2)
+print(v3)
+
 
 # print에 대해
 print(format(1.5678, '10.3f'))

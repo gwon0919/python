@@ -34,3 +34,14 @@ finally:
     print('에러 유무에 상관없이 반드시 수행됨')
 
 print('프로그램 종료')
+
+print()
+print('----test----')
+try:
+    aa = int(input())
+    bb = 10 / aa
+    if aa != 0:
+        print(bb)
+except Exception as e:
+    print('에러 발생 :', e)
+

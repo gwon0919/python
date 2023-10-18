@@ -64,7 +64,19 @@ result4 = q2(2, 10000)
 print('result4 : ', result4)
 
 
-
+a = 1.5; b = 2; c = 3;
+def Kbs():
+    a = 20
+    b = 30
+    def Mbc():
+        global c
+        nonlocal b
+    print('Mbc 내의 a:{}, b:{}, c:{}'.format(a, b, c))
+    c = 40
+    b = 50
+     
+    Mbc()
+    Kbs()
 
 
 

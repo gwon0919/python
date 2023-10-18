@@ -1,5 +1,6 @@
 # 반복문 for
 # for target in object: ...
+from intake.cli.client.subcommands import list
 
 for i in [1, 2, 3, 4, 5]:
     print(i, end=' ')
@@ -173,10 +174,10 @@ for i in range(1, 10):
     
 # 문1 : 2 ~ 5단 출력
 for n in [2, 3, 4, 5]:
-   print('----{}단--'.format(n))
-   for i in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
-       print('{}*{}={}'.format(n, i, n * i), end=' ')
-   print()
+    print('----{}단--'.format(n))
+    for i in [1, 2, 3, 4, 5, 6, 7, 8, 9]:
+        print('{}*{}={}'.format(n, i, n * i), end=' ')
+    print()
 
 print()    
 # 문2 : 1 ~ 100 사이의 정수 중 3의 배수이면서 5의 배수의 합 출력
@@ -186,6 +187,20 @@ for number in range(1, 101):  # 1부터 100까지의 정수를 반복
         total += number  # 합에 해당 숫자를 더함
 
 print("문제2 합은: ", total)
+
+#반복문 for를 사용 : 1 ~ 100 사이의 숫자 중 3의 배수 또는 4의 배수 이고 7의 배수가 아닌 수를 출력하고
+#건수와 합도 출력하는 코드를 작성하시오.
+count = 0
+total = 0
+
+for number in range(1, 101):
+    if (number % 3 == 0 or number % 4 == 0) and number % 7 != 0:
+        print(number, end=' ')
+        count += 1
+        total += number
+
+print("\n건수:", count)
+print("배수의 총합:", total)
 
 print()
 # 문3 : 주사위를 두 번 던져 나오는 숫자들의 합이 4의 배수가 되는 경우만 출력
@@ -197,5 +212,16 @@ for dice1 in range(1, 7):  # 첫 번째 주사위의 결과를 나타내는 루�
         total = dice1 + dice2  # 주사위 두 번 던진 결과의 합 계산
         if total % 4 == 0:  # 합이 4의 배수인 경우만 출력
             print(f"첫 번째 주사위: {dice1}, 두 번째 주사위: {dice2}, 합: {total}")
+
+for i in {1, 2, 3, 4, 5, 5, 5, 5}:
+    print(i, end = ' ')
+
+print()
+print('---test----')
+print(list(range(1, 6, 2)))
+
+
+
+
 
 

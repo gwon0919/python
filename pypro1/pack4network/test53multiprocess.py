@@ -7,7 +7,7 @@
 # multiprocessing 은 대표적으로 Pool(주로 사용)과 Process를 이용하여 하나 이상의 자식 process를 생성한 후 병렬구조로 처리한다.
 
 # Pool 클래스는 입력값에 대해 process를 건너건너 분배하여 함수 실행을 병렬화 한다.
-from multiprocess import pool, process
+from multiprocessing import Pool, process
 import time
 import os 
 

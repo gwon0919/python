@@ -1,6 +1,6 @@
 # 키보드로 부서번호를 입력받아 해당 부서의 자료를 출력. 인원수도 출력
 import MySQLdb
-'''
+
 config = {
     'host':'127.0.0.1',
     'user':'root',
@@ -10,10 +10,10 @@ config = {
     'charset':'utf8',
     'use_unicode':True
 }
-'''
-import pickle
-with open(r'mydb.dat', mode='rb') as obj:
-    config = pickle.load(obj)
+
+#import pickle
+#with open(r'mydb.dat', mode='rb') as obj:
+#    config = pickle.load(obj)
 
 def chulbal():
     try:
@@ -49,4 +49,8 @@ def chulbal():
         conn.close()
 if __name__== '__main__':
     chulbal()
+    
+    
+    
+    
     

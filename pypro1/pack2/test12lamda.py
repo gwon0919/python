@@ -31,6 +31,13 @@ print(hap(1,2))
 
 print((lambda x, y:x + y)(1,2))
 
+print('--시험중---')
+def Hap(m, n):
+    return m + n * 5
+print(Hap(1,2))
+
+print((lambda m, n:m+n*5)(1,2))
+
 jtbc = lambda x,y:x*y
 print(jtbc)  # 일회용 함수 <lambda> at 0x000001C805EFDB20> 
 print(jtbc(3,4))
