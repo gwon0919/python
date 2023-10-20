@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		document.querySelector("#btnOk").onclick = function(){
+			frm.submit();
+		}
+	}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td>
+			<img src="/static/images/pic1.jpg" style="width:100%"/>
+		</td>
+		<td>
+			<br/>
+			<pre>
+				제품명	컨텐츠 참조	식품의 유형	컨텐츠 참조
+				생산자 및 소재지	컨텐츠 참조	제조연월일, 소비기한 또는 품질유지기한	
+				소비기한(또는 유통기한) : 2024년 07월 09일 이거나 그 이후인 상품<br />제조년월일 : 2023년 07월 11일 이후인 제조상품
+				포장단위별 내용물의 용량(중량), 수량	컨텐츠 참조	원재료명 및 함량	컨텐츠 참조
+				영양성분	해당없음	유전자변형식품에 해당하는 경우의 표시	해당없음
+				소비자안전을 위한 주의사항	컨텐츠 참조	수입식품 문구	해당없음
+				소비자상담관련 전화번호	쿠팡고객센터 1577-7011
+			</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form action="cart" name="frm" method="post">{% csrf_token %}
+				<input type="hidden" name="name" value="히밥 광명 대창집 소대창">
+				<input type="hidden" name="price" value="13400원">
+				<input type="button" id="btnOk" value="cart"/>
+				<input type="button" value="home" onclick="history.back()">
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

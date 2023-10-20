@@ -1,0 +1,17 @@
+{% load static%}  <!--생략 가능하다. 리소스메모리를 ?-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+</head>
+<body>
+♧I am a Header♧
+<hr/>
+{% block content %}
+{% endblock %}
+<hr/>
+{% include "footer.html" %}
+</body>
+</html>
