@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		document.getElementById("btnOk").onclick = function(){
+			if (frm.name.value === ""){
+				frm.name.placeholder = "이름을 입력하시오";
+				return false;
+			}
+			frm.submit();
+		}
+	}
+</script>
+</head>
+<body>
+♤입력하세요♤
+<form action="/insertok" method="post" name="frm" onsubmit="return false">{% csrf_token %}
+<table border="2">
+	<tr>
+		<td>이름</td>
+		<td><input type="text" name="name"></td>
+	</tr>
+	<tr>
+		<td>나이</td>
+		<td><input type="number" name="nai"></td>
+	</tr>
+	<tr>
+		<td>전화</td>
+		<td><input type="text" name="tel"></td>
+	</tr>
+	<tr>
+		<td>성별</td>
+		<td>
+			<input type="radio" name="gen" value="남">남
+			<input type="radio" name="gen" value="여">여
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" id="btnOk" value="등록">
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
