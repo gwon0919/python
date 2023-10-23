@@ -17,6 +17,16 @@
 		<td>{{f.gen}}</td>
 	</tr>
 	{% endfor %}
+	<tr>
+			<td colspan="5">
+				인원수 : {{total}}명
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				나이평균 : {{avg_age}}
+			</td>
+		</tr>
 	{% else %}
 	<tr><td colspan="4">자료가 없어요</td></tr>
 	{% endif %}
