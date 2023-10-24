@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+♧ 직원 정보 LIST ♧
+<table border="1" style="width: 60%;" class="table table-dark table-striped">
+	<tr><th>직원번호</th><th>직원명</th><th>직급</th><th>관리고객</th></tr>
+	{% if jdatas %}
+	{% for j in jdatas %}
+	<tr>
+		<td>{{j.jikwon_no}}</td>
+		<td>{{j.jikwon_name}}</a></td>
+		<td>{{j.jikwon_jik}}</td>
+		<td>{{j.jikwon_pay}}</td>
+	</tr>
+	{% endfor %}
+	{% else %}
+	<tr><td colspan="4">자료없음</td></tr>
+	{% endif %}
+</table>
+
+</body>
+</html>
