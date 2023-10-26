@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 메뉴</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // "상품보기" 메뉴 클릭 시 Ajax 요청
+            $("#list").click(function() {
+                $.ajax({
+                    url: 'list', // 데이터를 가져올 URL로 변경
+                    type: 'get',
+                    success: function(data) {
+                        let str = "<table class='table table-dark table-striped'>";
+                        str += "<tr><th>id</th><th>분류</th><th>상품명</th><th>가격</th><th>총 가격</th><th>설명</th></tr>";
+                        $.each(data, function (ind, entry) {
+                            str += "<tr>";
+                            str += "<td>" + entry['id'] + "</td>";
+                            str += "<td>" + entry['category'] + "</td>";
+                            str += "<td>" + entry['pname'] + "</td>";
+                            str += "<td>" + entry['price'] + "</td>";
+                            str += "<td>" + entry['stock'] + "</td>";
+                            str += "<td>" + entry['description'] + "</td>";
+                            str += "</tr>";
+                        });
+                        str += "</table>";
+                        $("#list").append(str);
+                        $("#list").append("건수 : " + data.length); // 데이터의 개수를 출력
+                    }
+                });
+            });
+            // "상품추가" 메뉴 클릭 시 Ajax 요청
+            $("#insert").click(function() {
+                $.ajax({
+                    url: 'list', // 데이터를 가져올 URL로 변경
+                    type: 'get',
+                    success: function(data) {
+                        let str = "<form action='/board/insert' name='frm' method='post'>";
+                        str += "<table class='table table-dark table-striped'>";
+                        str += "<tr>";
+                        str += "<td>" + "분류" + "</td>";
+                        str += "<td>";
+                        str += "<input type='radio' name='category' value='버거' checked> 버거";
+                        str += "<input type='radio' name='category' value='음료'> 음료";
+                        str += "</td>";
+                        str += "</tr>";
+                        str += "<tr>";
+                        str += "<td>" + "품명" + "</td>";
+                        str += "<td>" + "<input type='text' name='pname'>" + "</td>";
+                        str += "</tr>";
+                        str += "<tr>";
+                        str += "<td>" + "가격" + "</td>";
+                        str += "<td>" + "<input type='text' name='price'>" + "</td>";
+                        str += "</tr>";
+                        str += "<tr>";
+                        str += "<td>" + "재고" + "</td>";
+                        str += "<td>" + "<input type='text' name='stock'>" + "</td>";
+                        str += "</tr>";
+                        str += "<tr>";
+                        str += "<td>" + "설명" + "</td>";
+                        str += "<td>" + "<textarea rows='5' style='width: 99%;' name='description'></textarea>" + "</td>";
+                        str += "</tr>";
+                        str += "</table>";
+                        str += "<input type='submit' value='추가'>";
+                        str += "</form>";
+                        $("#insert").empty().append(str);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li id="list">상품보기</li>
+        <li id="insert">상품추가</li>
+        <li><a href="/">메인화면</a></li>
+    </ul>
+</body>
+
+</html>

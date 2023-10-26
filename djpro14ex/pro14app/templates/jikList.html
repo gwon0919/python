@@ -5,22 +5,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-♧ 직원 정보 LIST ♧
-<table border="1" style="width: 60%;" class="table table-dark table-striped">
+*직원 정보 보기*
+<div style="width:50%; text-align: right;">
+</div>
+<br/>
+<table border="1" style="width:50%;">
 	<tr><th>직원번호</th><th>직원명</th><th>직급</th><th>관리고객</th></tr>
-	{% if jdatas %}
-	{% for j in jdatas %}
+	{% if datas %}
+	{% for j in datas %}
 	<tr>
 		<td>{{j.jikwon_no}}</td>
-		<td>{{j.jikwon_name}}</a></td>
+		<td>
+			 {% if j.gogek_damsano_count > 0 %}
+                <a href="/buser/gogek?gogek_no={{ j.jikwon_no }}">{{ j.jikwon_name }}</a>
+            {% else %}
+                {{ j.jikwon_name }}
+            {% endif %}
+		</td>
 		<td>{{j.jikwon_jik}}</td>
-		<td>{{j.jikwon_pay}}</td>
+		<td>{{ j.gogek_damsano_count }}</td>
 	</tr>
 	{% endfor %}
 	{% else %}
-	<tr><td colspan="4">자료없음</td></tr>
+	<tr><td colspan="4">정보가 없습니다.</td></tr>
 	{% endif %}
 </table>
-
 </body>
 </html>

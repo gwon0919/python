@@ -3,7 +3,7 @@ from pro14app import views
 
 
 urlpatterns = [
-    path('jiklist', views.JikFunc),
-    path('goList', views.GoFunc), 
+    path('jiklist', views.JikwonFunc),
+    path('goList', views.GogekFunc),  
     
 ]

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 95%;
+            text-align: center;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        .confirm {
+            text-align: right;
+            font-size: 30px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // "버거" 메뉴 클릭 시 Ajax 요청
+            $("#burger").click(function () {
+                $.ajax({
+                    url: 'burger',
+                    type: 'get',
+                    success: function (data) {
+                        let str = "<table class='table table-dark table-striped'>";
+                        str += "<tr><th>제품명</th><th>가격</th><th>설명</th><th>주문수량</th><th>총 가격</th></tr>";
+                        $.each(data, function (ind, entry) {
+                            str += "<tr>";
+                            str += "<td>" + entry['pname'] + "</td>";
+                            str += "<td>" + entry['price'] + "</td>";
+                            str += "<td>" + entry['description'] + "</td>";
+                            str += "<td><input type='number' name='su' class='su' data-price='" + entry['price'] + "'></td>";
+                            str += "<td class='total'></td>";
+                            str += "</tr>";
+                        });
+                        str += "</table>";
+
+                        // "확인" 버튼과 총 가격을 감싸는 div 추가
+                        str += "<div id='controls' class='confirm'>";
+                        str += "<span id='totalPrice'></span>";
+                        str += "<button id='confirmAll'>계산 확인</button>";
+                        str += "</div>";
+
+                        $("#menu").empty().append(str);
+                    },
+                    error: function () {
+                        $("#menu").text("제품 정보를 불러오지 못했습니다.");
+                    }
+                });
+            });
+
+            $("#drinks").click(function () {
+                $.ajax({
+                    url: 'drinks',
+                    type: 'get',
+                    success: function (data) {
+                        let str = "<table class='table table-dark table-striped'>";
+                        str += "<tr><th>제품명</th><th>가격</th><th>설명</th><th>주문수량</th><th>총 가격</th></tr>";
+                        $.each(data, function (ind, entry) {
+                            str += "<tr>";
+                            str += "<td>" + entry['pname'] + "</td>";
+                            str += "<td>" + entry['price'] + "</td>";
+                            str += "<td>" + entry['description'] + "</td>";
+                            str += "<td><input type='number' name='su' class='su' data-price='" + entry['price'] + "'></td>";
+                            str += "<td class='total'></td>";
+                            str += "</tr>";
+                        });
+                        str += "</table>";
+
+                        // "확인" 버튼과 총 가격을 감싸는 div 추가
+                        str += "<div id='controls' class='confirm'>";
+                        str += "<span id 'totalPrice'></span>";
+                        str += "<button id='confirmAll'>계산 확인</button>";
+                        str += "</div>";
+
+                        $("#menu").empty().append(str);
+                    },
+                    error: function () {
+                        $("#menu").text("제품 정보를 불러오지 못했습니다.");
+                    }
+                });
+            });
+
+            // '확인' 버튼 클릭 시 가격 계산 및 표시
+            $(document).on('click', '#confirmAll', function () {
+                updateTotalPrice();
+            });
+
+            // 총 가격 계산 및 표시
+            function updateTotalPrice() {
+                let total = 0;
+                $('.su').each(function () {
+                    let suInput = $(this);
+                    let totalCell = $(this).closest('tr').find('.total');
+                    let su = parseInt(suInput.val());
+                    let price = parseFloat(suInput.data('price'));
+
+                    if (!isNaN(su) && !isNaN(price)) {
+                        let subtotal = su * price;
+                        total += subtotal;
+                        totalCell.text(subtotal);
+                    } else {
+                        totalCell.text('오류');
+                    }
+                });
+
+                $('#totalPrice').text('전체 총 가격: ' + total);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <h1>메뉴</h1>
+    <ul>
+        <li id="burger">버거</li>
+        <li id="drinks">음료</li>
+        <li id="events">이벤트</li>
+        <li><a href="/adminMenu">관리자</a></li>
+    </ul>
+    <div id="menu">
+        <!-- 제품 정보가 여기에 동적으로 표시됩니다. -->
+    </div>
+</body>
+
+</html>

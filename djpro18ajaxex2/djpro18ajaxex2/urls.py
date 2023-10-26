@@ -1,5 +1,5 @@
 """
-URL configuration for djpro16ajax project.
+URL configuration for djpro18ajaxex2 project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/dev/topics/http/urls/
@@ -16,12 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pro16app import views
+from exapp import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', views.mainFunc),
-    path('startajax', views.Func1),
-    path('goajax', views.Func2),
-    path('chulbalajax', views.Func2), 
+    path('', views.MainFunc),
+    path('burger',views.BurgerFunc), 
+    path('drinks',views.DrinksFunc),
+    path('adminMenu',views.AdminFunc),   
+    path('list',views.ListFunc),
+    path('insert',views.InsertFunc), 
+    
 ]

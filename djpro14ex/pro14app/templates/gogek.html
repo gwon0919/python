@@ -5,21 +5,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-*부서 정보 보기*
+*고객 정보 보기*
 <div style="width:50%; text-align: right;">
-
 </div>
 <br/>
 <table border="1" style="width:50%;">
-	<tr><th>부서번호</th><th>부서명</th><th>부서전화</th><th>지역명</th></tr>
+	<tr><th>고객번호</th><th>고객명</th><th>성별</th><th>고객전화</th></tr>
 	{% if datas %}
-	{% for b in datas %}
+	{% for g in datas %}
 	<tr>
-		<td>{{b.buser_no}}</td>
-		<td><a href="/buser/jikwon?buser_no={{b.buser_no}}">{{b.buser_name}}</a></td>
-		<td>{{b.buser_tel}}</td>
-		<td>{{b.buser_loc}}</td>
-		
+		<td>{{g.gogek_no}}</td>
+		<td>{{g.gogek_name}}</td>
+		<td>{{g.gen}}</td>
+		<td>{{g.gogek_tel}}</td>
 	</tr>
 	{% endfor %}
 	{% else %}
