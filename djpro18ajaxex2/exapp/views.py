@@ -43,19 +43,20 @@ def ListFunc(request):
 
 def InsertFunc(request):
     if request.method == 'GET':
-        datas = Producttab.objects.all()
-        return HttpResponse(json.dumps(datas),content_type='application/json')
+        datas = Producttab.objects.values()
+        return JsonResponse(list(datas), safe=False)
     elif request.method == 'POST':
         try:
-            Producttab(
-                id=request.POST.get('id'),
+            new_product = Producttab(
                 category=request.POST.get('category'),
                 pname=request.POST.get('pname'),
                 price=request.POST.get('price'),
                 stock=request.POST.get('stock'),
                 description=request.POST.get('description'),
-                ).save()
+            )
+            new_product.save()
+            return JsonResponse({'message': 'Product added successfully'})
         except Exception as e:
             print('추가 에러 : ', e)
-    return HttpResponse(json.dumps(datas),content_type='application/json')
+            return JsonResponse({'message': 'Error adding product'}, status=500)
 

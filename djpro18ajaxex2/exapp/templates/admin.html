@@ -36,9 +36,9 @@
             $("#insert").click(function() {
                 $.ajax({
                     url: 'list', // 데이터를 가져올 URL로 변경
-                    type: 'get',
+                    type: 'POST',
                     success: function(data) {
-                        let str = "<form action='/board/insert' name='frm' method='post'>";
+                      let str = "<form action='/board/insert' name='frm' method='post'>";
                         str += "<table class='table table-dark table-striped'>";
                         str += "<tr>";
                         str += "<td>" + "분류" + "</td>";
