@@ -18,7 +18,7 @@ def go():
     #converting plain_text to Beautiful Soup object so the library can sort thru it
     convert_data = BeautifulSoup(plain_text, 'lxml')
     print(type(convert_data))   # <class 'bs4.BeautifulSoup'>
-    
+     
     for link in convert_data.findAll('a'):
         href = base_url + link.get('href')  #Building a clickable url
         print(href)                          #displaying href
