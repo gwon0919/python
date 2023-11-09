@@ -130,12 +130,27 @@ uni_days = tips['day'].unique()  # pd.unique(tips['day'])
 print("\n요일 칼럼의 유일한 값:")
 print(uni_days)
 
+print('-----------------')
+import numpy as np
+
+x = [1, 2, 3, 4, 5]  # 1차원 배열
+y = np.array([1, 2, 3]).reshape(3, 1)  # 2차원 배열로 reshape
+
+result = x + y  # 더하기 연산
+
+print(x + y)
 
 
+from pandas import DataFrame
 
+data = {"a": [80, 90, 70, 30], "b": [90, 70, 60, 40], "c": [90, 60, 80, 70]}
+df = DataFrame(data)
 
-
-
+# 열 이름 변경
+df.columns = ["국어", "영어", "수학"]
+print("1. 모든 학생의 수학 점수:", df['수학'])
+print("2. 모든 학생의 수학 점수의 표준편차:", df['수학'].std())
+print("3. 모든 학생의 국어와 영어 점수:", df[['국어', '영어']])
 
 
 

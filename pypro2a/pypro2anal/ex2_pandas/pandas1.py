@@ -116,3 +116,33 @@ print(result1.value_counts())
 
 result2=Series([x.split()[1] for x in fr.juso])
 print(result2)
+
+
+import numpy as np
+data = np.array([[1,2,3,4],
+                [5,6,7,8],
+                [9,10,11,12],
+                [13,14,15,16]])
+
+print(data)
+
+print(data[::-1, ::-1])
+
+import seaborn as sns
+titanic = sns.load_dataset('titanic')
+
+print(titanic.head())
+print(titanic['sex'])
+#print(titanic['class'].astype(str))
+
+#print(titanic.pivot_table(columns =['class'], index=['sex']))
+
+from pandas import DataFrame
+
+frame = DataFrame({'bun': [1, 2, 3, 4], 'irum': ['aa', 'bb', 'cc', 'dd']},
+                  index=['a', 'b', 'c', 'd'])
+
+# DataFrame을 전치하여 출력
+print(frame)
+print(frame.transpose())
+print(frame.drop('d'))

@@ -45,10 +45,21 @@ print(sample_data.head(), sample_data.shape)
 
 
 
+print('-------------test---------------')
+import pandas as pd 
+import scipy.stats 
 
+# 귀무 : 등급(Pclass)에 따라 생존율(Survived)이 차이가 없다.
+# 대립 : 등급(Pclass)에 따라 생존율(Survived)이 차이가 있다.
 
+data = pd.read_csv("../testdata/titanic_data.csv")
+print(data.head(7), data.shape)
 
-
+ctab = pd.crosstab(index=data['Pclass'], columns=data['Survived'])
+print(ctab)
+chi2, pvalue, _, _ = scipy.stats.chi2_contingency(ctab)
+print('chi2:{}, pvalue:{}'.format(chi2, pvalue))
+# 해석 : pvalue:4.54 > 0.05이므로 귀무채택. 등급(Pclass)에 따라 생존율(Survived)이 차이가 없다.
 
 
 
